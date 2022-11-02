@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GQ3</title>
+	<link rel="icon" href="icon.png">
+	<link rel="stylesheet" type="text/css" href="geoQuizStyle.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Roboto+Slab&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
+</head>
+<body>
+	<div id="container">
+		<div id="prog_bg">
+			<div id="prog_bar"></div>
+		</div>
+		<div style="display: none;" id="finish_div"></div>
+		<div id="welcome_div">
+			<button class="choices_btn" onclick="choose(countries, capitals, 'What is the capital of', false, false)">Guess the capital from country</button>
+			<button class="choices_btn" onclick="choose(flags, countries, 'Which country has this flag', true, false)">Guess the country from flag</button>
+			<button class="choices_btn" onclick="choose(countries, flags, 'Which one is the flag of ', false, false, true)">Guess the flag from the country</button>
+			<button class="choices_btn" onclick="choose(countryShapes, countries, 'Which country has this shape', true, false)">Guess the country from shape</button>
+			<button class="choices_btn" onclick="choose(countryLocs, countries, 'Which country is painted in red', true, false)">Guess the country from location</button>
+			<button class="choices_btn" onclick="choose(capitalImages, capitals, 'Which captial is shown in the image', true, false)">Guess the capital from image</button>
+			<button class="choices_btn" onclick="choose(langImages, languages, 'Which language is this', true, false)">Guess the language from a sample</button>
+			<button class="choices_btn" onclick="choose(progImages, progLangs, 'Which programming language is this', true, false)">Guess the programming language from a code</button>
+			<button class="choices_btn" onclick="choose(symbols, elements,'Which element has the symbol', false, false)">Guess the chemical element from symbol</button>
+			<button class="choices_btn" onclick="choose(chemQuestions, elements, '', false, false)">Guess the chemical element from a question</button>
+			<button class="choices_btn" onclick="choose(anthems, countries, 'Which country has this anthem', false, true)">COMING SOON</button>
+		</div>
+		<div id="mC_TI_div" style="display:none">
+			<button id="multi_choice" onclick="changeQuestionType(this.id)">MULTIPLE CHOICE</button>
+			<button id="text_input" onclick="changeQuestionType(this.id)">TEXT INPUT</button>
+		</div>
+		<div id="quiz" style="display:none">
+			<div id="question_div" style="display:none;">
+				<h1 id="question_heading"></h1>
+				<h1 id="question_text_content"></h1>
+				<img src="" id="question_img" class="question_images">
+				<audio id='question_audio_content' controls> 
+					<source src='' type='audio/mpeg' id="question_audio_source_content">
+					Audio not supported
+				</audio>
+				<div id="ans_btns_div">
+					<button class="ans_btns" id="btn1" onclick="btnanswer(this.innerHTML)"></button>
+					<button class="ans_btns" id="btn2" onclick="btnanswer(this.innerHTML)"></button>
+					<button class="ans_btns" id="btn3" onclick="btnanswer(this.innerHTML)"></button>
+					<button class="ans_btns" id="btn4" onclick="btnanswer(this.innerHTML)"></button>
+				</div>
+				<div id="text_input_div">
+					<input id="input_ans" onkeyup="textInputAns(this.value)">
+					<h2>Press Enter to contintue</h2>
+				</div>
+			</div>
+
+			<div id="after_question" style="display:none" onclick="showQuestion()">
+				<h1 id="correct_wrong"></h1>
+				<h2 id="correct_ans"></h2>
+				<h2 id="next">Click or tap here to continue</h2>
+			</div>
+			<button id="finish_btn" onclick="if(confirm('Do you want to exit the game?')) finish()">quit now</button>
+		</div>
+		<script src="data.js"></script>
+		<script src="geoQuizScript.js"></script>
+	</div>
+	
+</body>
+</html>
